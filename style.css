@@ -1,0 +1,10 @@
+#navbar {
+background:black;
+display: flex;
+justify-content: space-between;
+padding: 15px;
+color: azure;
+border-radius: 31px;
+margin: 40 px
+;
+}
