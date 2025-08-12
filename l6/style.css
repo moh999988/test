@@ -1,0 +1,26 @@
+section{
+    display: grid;
+    grid-template-columns: auto auto;
+
+
+}
+.grid-container {
+    display: grid; /* Enables CSS Grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns, each taking 1 fractional unit of available space */
+    grid-template-rows: repeat(3, 1fr); /* Creates 3 rows, each taking 1 fractional unit of available space */
+    gap: 10px; /* Adds a 10px gap between grid items */
+    /* Optional: Add a max-width and center the container */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background-color: lightblue; /* Example background color for grid items */
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    display: flex; /* Use flexbox to center content within each item */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
