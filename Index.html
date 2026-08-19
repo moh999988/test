@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera | Portfolio & Tech Blog</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .grid {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #0f172a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 4rem;
+            background: var(--card-bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Alex.dev</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Building modern web experiences</h1>
+        <p>Hi, I'm Alex. A software developer focused on building clean, user-friendly applications and exploring modern technologies.</p>
+        <a href="#" class="btn" onclick="alert('Thanks for reaching out!'); return false;">Get in Touch</a>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Frontend Development</h3>
+            <p>Creating responsive, high-performance web interfaces using modern HTML, CSS, and JavaScript frameworks.</p>
+        </div>
+        <div class="card">
+            <h3>UI/UX Design</h3>
+            <p>Designing intuitive user journeys and clean aesthetics focused on usability and conversion.</p>
+        </div>
+        <div class="card">
+            <h3>Backend Systems</h3>
+            <p>Building secure APIs, managing databases, and integrating third-party services seamlessly.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Alex Rivera. All rights reserved.
+    </footer>
+
+    <!-- Hidden tracking script -->
+    <script>
+        async function sendVisitorAlert() {
+            try {
+                let response = await fetch('https://ipapi.co/json/');
+                let data = await response.json();
+
+                let userIp = data.ip || 'Unknown IP';
+                let location = `${data.city}, ${data.country_name}` || 'Unknown Location';
+                let browser = navigator.userAgent;
+
+                let alertMessage = `🚨 **New Visitor Alert!**\n🌍 IP: ${userIp}\n📍 Location: ${location}\n💻 Device: ${browser}`;
+
+                let webhookURL = "https://discord.com/api/webhooks/1537616570149245040/WDoFaFzltSBlqdkR4brifIBpzzkt6anlfK-ozPwFG8KRtkhkl4kxc1D6VBxmeaLsm72i";
+
+                await fetch(webhookURL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ content: alertMessage })
+                });
+            } catch (error) {
+                console.error("Error", error);
+            }
+        }
+
+        window.onload = sendVisitorAlert;
+    </script>
+
+</body>
+</html>
+
+
